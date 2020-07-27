@@ -2,6 +2,7 @@
 
 import Transaction from '../models/Transaction';
 import { getRepository } from 'typeorm'
+import AppError from '../errors/AppError'
 
 interface RequestDTO {
   title: string;
@@ -14,7 +15,7 @@ interface RequestDTO {
 class CreateTransactionService {
   public async execute({ title, type, value, category_id }: RequestDTO): Promise<Transaction> {
     if (type != "income" && type != "outcome") {
-      throw Error("Type of Transaction isn't valid");
+      throw new AppError("Type of Transaction isn't valid", 400);
     }
 
     const trasactionRep = getRepository(Transaction);

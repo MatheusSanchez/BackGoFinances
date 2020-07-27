@@ -12,18 +12,16 @@ transactionsRouter.get('/', async (request, response) => {
 });
 
 transactionsRouter.post('/', async (request, response) => {
-  try {
 
-    const { title, type, value, category_id } = request.body;
 
-    const CreateTransaction = new CreateTransactionService();
-    const newTransaction = await CreateTransaction.execute({ title, type, value, category_id });
+  const { title, type, value, category_id } = request.body;
 
-    return response.status(200).json(newTransaction)
+  const CreateTransaction = new CreateTransactionService();
+  const newTransaction = await CreateTransaction.execute({ title, type, value, category_id });
 
-  } catch (err) {
-    return response.status(400).json({ message: err.message })
-  }
+  return response.status(200).json(newTransaction)
+
+
 });
 
 transactionsRouter.delete('/:id', async (request, response) => {
