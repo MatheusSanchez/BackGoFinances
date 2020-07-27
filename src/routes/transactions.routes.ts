@@ -14,10 +14,10 @@ transactionsRouter.get('/', async (request, response) => {
 transactionsRouter.post('/', async (request, response) => {
 
 
-  const { title, type, value, category_id } = request.body;
+  const { title, type, value, category } = request.body;
 
   const CreateTransaction = new CreateTransactionService();
-  const newTransaction = await CreateTransaction.execute({ title, type, value, category_id });
+  const newTransaction = await CreateTransaction.execute({ title, type, value, category });
 
   return response.status(200).json(newTransaction)
 
