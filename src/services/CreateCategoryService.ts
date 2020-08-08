@@ -12,20 +12,21 @@ interface RequestDTO {
 class CreateCategoryService {
     public async execute({ category }: RequestDTO): Promise<Category> {
 
-
+        //searching in db from the category
         const categoryRep = getRepository(Category);
         const categoryExists = await categoryRep.findOne({
             where: { "category_name": category }
         })
 
+
+        // if we have this specific category, just retun. Else, creat it
         if (categoryExists) {
             return categoryExists;
         } else {
             const newCategory = categoryRep.create({
-                "category_name": category
+                "title": category
             })
             await categoryRep.save(newCategory);
-
             return newCategory;
         }
 

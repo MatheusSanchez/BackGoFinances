@@ -19,14 +19,16 @@ class CreateTransactionService {
       throw new AppError("Type of Transaction isn't valid", 400);
     }
 
+    //creating caregory from this transaction
     const createCategory = new CreateCategoryService();
-
     const actualCategory = await createCategory.execute({ category });
 
+
+    //creating transaction with this category
     const trasactionRep = getRepository(Transaction);
 
     const newTransaction = trasactionRep.create({
-      title, type, value, category_id: actualCategory.id
+      title, type, value, category_id: actualCategory.id, category: actualCategory
     });
 
     await trasactionRep.save(newTransaction);

@@ -8,11 +8,7 @@ class Category {
   id: string;
 
   @Column()
-  category_name: string;
-
-  @ManyToOne(() => Transaction)
-  @JoinColumn({ name: 'id' })
-  provider: Transaction;
+  title: string;
 
   @CreateDateColumn()
   created_at: Date;
