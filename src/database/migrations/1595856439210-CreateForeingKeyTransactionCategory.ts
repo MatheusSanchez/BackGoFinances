@@ -13,7 +13,7 @@ export class CreateForeingKeyTransactionCategory1595856439210 implements Migrati
             name: "CategoryId",
             columnNames: ['category_id'],
             referencedColumnNames: ['id'],
-            referencedTableName: 'category',
+            referencedTableName: 'categories',
             onDelete: 'SET NULL',
             onUpdate: 'CASCADE'
         }))

@@ -28,7 +28,7 @@ class CreateTransactionService {
     const trasactionRep = getRepository(Transaction);
 
     const newTransaction = trasactionRep.create({
-      title, type, value, category_id: actualCategory.id, category: actualCategory
+      title, type, value, category: actualCategory
     });
 
     await trasactionRep.save(newTransaction);

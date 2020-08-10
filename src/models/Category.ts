@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm'
 import Transaction from './Transaction'
-@Entity('category')
+@Entity('categories')
 
 class Category {
 

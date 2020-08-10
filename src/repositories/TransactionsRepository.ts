@@ -14,6 +14,8 @@ class TransactionsRepository extends Repository<Transaction> {
   public async all(): Promise<Transaction[]> {
     const allTransactions = await this.find();
 
+
+
     return allTransactions;
   }
 
