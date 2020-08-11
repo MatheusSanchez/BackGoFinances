@@ -14,7 +14,6 @@ class DeleteTransactionService {
 
     await transactionRepo.remove(transaction);
 
-    // TODO
   }
 }
 
