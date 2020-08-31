@@ -1,9 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm'
-import Transaction from './Transaction'
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+
 @Entity('categories')
-
 class Category {
-
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
