@@ -35,7 +35,7 @@ class CreateTransactionService {
     }
 
     // creating caregory from this transaction
-    let transactionCategory = categoryRepo.findOne({
+    let transactionCategory = await categoryRepo.findOne({
       where: {
         title: category,
       },
